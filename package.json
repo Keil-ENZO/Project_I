@@ -1,0 +1,17 @@
+{
+  "name": "project_i",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel ./src/index.html",
+    "watch": "npx tailwindcss -i ./src/style/style.css -o ./dist/style/style.css --watch" 
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tailwindcss": "^3.3.3",
+    "three": "^0.154.0"
+  }
+}
