@@ -587,15 +587,11 @@ camera.position.z = 5;
 const renderer = new _three.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 canvasContainer.appendChild(renderer.domElement);
-//Texture du cube
-const loader = new _three.TextureLoader();
-const texture = loader.load("../style/img/materiel.png", ()=>{
-    animate();
-});
 // Créer un cube
-const geometry = new _three.BoxGeometry(1, 1, 1);
+const geometry = new _three.SphereGeometry(2, 32, 32);
 const material = new _three.MeshBasicMaterial({
-    map: texture
+    color: 0xffffff,
+    wireframe: false
 });
 const cube = new _three.Mesh(geometry, material);
 scene.add(cube);
