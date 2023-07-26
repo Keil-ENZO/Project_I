@@ -575,11 +575,41 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"8lRBv":[function(require,module,exports) {
 var _three = require("three");
+// Récupérer le conteneur du canvas
+const canvasContainer = document.getElementById("canvas-container");
+// Créer la scène
 const scene = new _three.Scene();
+scene.background = new _three.Color(0x000000);
+// Créer la caméra
 const camera = new _three.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.z = 5;
+// Créer le rendu
 const renderer = new _three.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+canvasContainer.appendChild(renderer.domElement);
+//Texture du cube
+const loader = new _three.TextureLoader();
+const texture = loader.load("../style/img/materiel.png", ()=>{
+    animate();
+});
+// Créer un cube
+const geometry = new _three.BoxGeometry(1, 1, 1);
+const material = new _three.MeshBasicMaterial({
+    map: texture
+});
+const cube = new _three.Mesh(geometry, material);
+scene.add(cube);
+// le cubre suit la souris
+window.addEventListener("mousemove", (event)=>{
+    cube.rotation.x = event.clientY / window.innerHeight * 2;
+    cube.rotation.y = event.clientX / window.innerWidth * 2;
+});
+// Créer une boucle de rendu
+const animate = function() {
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
+};
+animate();
 
 },{"three":"ktPTu"}],"ktPTu":[function(require,module,exports) {
 /**
