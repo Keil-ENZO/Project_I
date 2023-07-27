@@ -578,8 +578,6 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _three = require("three");
 var _textureJpeg = require("../style/img/texture.jpeg");
 var _textureJpegDefault = parcelHelpers.interopDefault(_textureJpeg);
-var _materielPng = require("../style/img/materiel.png");
-var _materielPngDefault = parcelHelpers.interopDefault(_materielPng);
 // Récupérer le conteneur du canvas
 const canvasContainer = document.getElementById("canvas-container");
 // Créer la scène
@@ -587,25 +585,30 @@ const scene = new _three.Scene();
 scene.background = new _three.Color(0x000000);
 // Créer la caméra
 const camera = new _three.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.z = 5;
+camera.position.set(0, 0, 5);
 // Créer le rendu
 const renderer = new _three.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 canvasContainer.appendChild(renderer.domElement);
 const textureLoader = new _three.TextureLoader();
-// Créer un cube
-const geometry = new _three.SphereGeometry(2, 32, 32);
+// Créer un sphere
+const radius = 1;
+const segments = 32;
+const rings = 16;
+const sphereGeometry = new _three.SphereGeometry(radius, segments, rings);
 const material = new _three.MeshBasicMaterial({
     color: 0x808080,
     map: textureLoader.load((0, _textureJpegDefault.default)),
     wireframe: false
 });
-const cube = new _three.Mesh(geometry, material);
-scene.add(cube);
+const sphere = new _three.Mesh(sphereGeometry, material);
+scene.add(sphere);
 // le cubre suit la souris
 window.addEventListener("mousemove", (event)=>{
-    cube.rotation.x = event.clientY / window.innerHeight * 2;
-    cube.rotation.y = event.clientX / window.innerWidth * 2;
+    sphere.rotation.x = event.clientY / window.innerHeight * 0.5;
+    sphere.rotation.y = event.clientX / window.innerWidth * -2;
+    const modification = new _three.SphereGeometry(2, 32, 32);
+    sphere.geometry = modification;
 });
 // Créer une boucle de rendu
 const animate = function() {
@@ -614,7 +617,7 @@ const animate = function() {
 };
 animate();
 
-},{"three":"ktPTu","@parcel/transformer-js/src/esmodule-helpers.js":"aRELh","../style/img/texture.jpeg":"hHWe2","../style/img/materiel.png":"kuk29"}],"ktPTu":[function(require,module,exports) {
+},{"three":"ktPTu","@parcel/transformer-js/src/esmodule-helpers.js":"aRELh","../style/img/texture.jpeg":"hHWe2"}],"ktPTu":[function(require,module,exports) {
 /**
  * @license
  * Copyright 2010-2023 Three.js Authors
@@ -30605,9 +30608,6 @@ exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 exports.getOrigin = getOrigin;
 
-},{}],"kuk29":[function(require,module,exports) {
-module.exports = require("a6c81d4a36fcf3ca").getBundleURL("ixJtV") + "materiel.15ab61a7.png" + "?" + Date.now();
-
-},{"a6c81d4a36fcf3ca":"95GEp"}]},["6tjev","8lRBv"], "8lRBv", "parcelRequirea816")
+},{}]},["6tjev","8lRBv"], "8lRBv", "parcelRequirea816")
 
 //# sourceMappingURL=index.59a40e7a.js.map
