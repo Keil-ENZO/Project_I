@@ -1,5 +1,8 @@
 import * as THREE from 'three';
 
+
+import texture from "../style/img/texture.jpeg";
+import materiel from "../style/img/materiel.png";
 // Récupérer le conteneur du canvas
 const canvasContainer = document.getElementById("canvas-container");
 
@@ -21,10 +24,13 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 canvasContainer.appendChild(renderer.domElement);
 
+const textureLoader = new THREE.TextureLoader();
+
 // Créer un cube
 const geometry = new THREE.SphereGeometry(2, 32, 32);
 const material = new THREE.MeshBasicMaterial({
-  color: 0xffffff,
+  color: 0x808080,
+  map: textureLoader.load(texture),
   wireframe: false,
 });
 const cube = new THREE.Mesh(geometry, material);

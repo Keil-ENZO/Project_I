@@ -574,7 +574,12 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"8lRBv":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _three = require("three");
+var _textureJpeg = require("../style/img/texture.jpeg");
+var _textureJpegDefault = parcelHelpers.interopDefault(_textureJpeg);
+var _materielPng = require("../style/img/materiel.png");
+var _materielPngDefault = parcelHelpers.interopDefault(_materielPng);
 // Récupérer le conteneur du canvas
 const canvasContainer = document.getElementById("canvas-container");
 // Créer la scène
@@ -587,10 +592,12 @@ camera.position.z = 5;
 const renderer = new _three.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 canvasContainer.appendChild(renderer.domElement);
+const textureLoader = new _three.TextureLoader();
 // Créer un cube
 const geometry = new _three.SphereGeometry(2, 32, 32);
 const material = new _three.MeshBasicMaterial({
-    color: 0xffffff,
+    color: 0x808080,
+    map: textureLoader.load((0, _textureJpegDefault.default)),
     wireframe: false
 });
 const cube = new _three.Mesh(geometry, material);
@@ -607,7 +614,7 @@ const animate = function() {
 };
 animate();
 
-},{"three":"ktPTu"}],"ktPTu":[function(require,module,exports) {
+},{"three":"ktPTu","@parcel/transformer-js/src/esmodule-helpers.js":"aRELh","../style/img/texture.jpeg":"hHWe2","../style/img/materiel.png":"kuk29"}],"ktPTu":[function(require,module,exports) {
 /**
  * @license
  * Copyright 2010-2023 Three.js Authors
@@ -30560,6 +30567,47 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["6tjev","8lRBv"], "8lRBv", "parcelRequirea816")
+},{}],"hHWe2":[function(require,module,exports) {
+module.exports = require("83125182fc597003").getBundleURL("ixJtV") + "texture.698eed8b.jpeg" + "?" + Date.now();
+
+},{"83125182fc597003":"95GEp"}],"95GEp":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+}
+// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"kuk29":[function(require,module,exports) {
+module.exports = require("a6c81d4a36fcf3ca").getBundleURL("ixJtV") + "materiel.15ab61a7.png" + "?" + Date.now();
+
+},{"a6c81d4a36fcf3ca":"95GEp"}]},["6tjev","8lRBv"], "8lRBv", "parcelRequirea816")
 
 //# sourceMappingURL=index.59a40e7a.js.map
