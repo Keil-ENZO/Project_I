@@ -1,7 +1,4 @@
-import * as THREE from 'three';
-
-
-
+import * as THREE from "three";
 
 import texture from "../style/img/texture.jpeg";
 // Récupérer le conteneur du canvas
@@ -46,7 +43,8 @@ const light = new THREE.DirectionalLight(0xffffff, 1);
 light.position.set(1, 1, 1);
 scene.add(light);
 
-const animation = function () {
+//Animation de la planete au mouvement de la souris
+const animation = function (timestamp) {
   //Déformation des cotees de la sphere
   const scale = 2;
   sphere.scale.set(scale, scale, scale);
@@ -69,5 +67,3 @@ const animate = function () {
 };
 
 animate();
-
-

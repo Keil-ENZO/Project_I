@@ -607,7 +607,8 @@ scene.add(sphere);
 const light = new _three.DirectionalLight(0xffffff, 1);
 light.position.set(1, 1, 1);
 scene.add(light);
-const animation = function() {
+//Animation de la planete au mouvement de la souris
+const animation = function(timestamp) {
     //Déformation des cotees de la sphere
     const scale = 2;
     sphere.scale.set(scale, scale, scale);
