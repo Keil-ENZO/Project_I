@@ -592,23 +592,33 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 canvasContainer.appendChild(renderer.domElement);
 const textureLoader = new _three.TextureLoader();
 // Créer un sphere
-const radius = 1;
+const radius = 0.9;
 const segments = 32;
 const rings = 16;
 const sphereGeometry = new _three.SphereGeometry(radius, segments, rings);
-const material = new _three.MeshBasicMaterial({
-    color: 0x808080,
+const material = new _three.MeshStandardMaterial({
     map: textureLoader.load((0, _textureJpegDefault.default)),
-    wireframe: false
+    metalness: 0.9,
+    roughness: 0.1
 });
 const sphere = new _three.Mesh(sphereGeometry, material);
 scene.add(sphere);
-// le cubre suit la souris
+// Ajouter une lumière pour éclairer la scène
+const light = new _three.DirectionalLight(0xffffff, 1);
+light.position.set(1, 1, 1);
+scene.add(light);
+const animation = function() {
+    //Déformation des cotees de la sphere
+    const scale = 2;
+    sphere.scale.set(scale, scale, scale);
+};
+// la sphere suit la souris
 window.addEventListener("mousemove", (event)=>{
+    animation();
     sphere.rotation.x = event.clientY / window.innerHeight * 0.5;
     sphere.rotation.y = event.clientX / window.innerWidth * -2;
-    const modification = new _three.SphereGeometry(2, 32, 32);
-    sphere.geometry = modification;
+//   const modification = new THREE.SphereGeometry(2, 32, 32);
+//   sphere.geometry = modification;
 });
 // Créer une boucle de rendu
 const animate = function() {
