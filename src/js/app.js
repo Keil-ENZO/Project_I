@@ -43,22 +43,51 @@ const light = new THREE.DirectionalLight(0xffffff, 1);
 light.position.set(1, 1, 1);
 scene.add(light);
 
-//Animation de la planete au mouvement de la souris
-const animation = function (timestamp) {
-  //Déformation des cotees de la sphere
-  const scale = 2;
-  sphere.scale.set(scale, scale, scale);
-};
 
-// la sphere suit la souris
-window.addEventListener("mousemove", (event) => {
-  animation();
-  sphere.rotation.x = (event.clientY / window.innerHeight) * 0.5;
-  sphere.rotation.y = (event.clientX / window.innerWidth) * -2;
+// Fonction pour exécuter la transition de l'échelle de la sphère
+function runSphereScaleTransition(targetScale, duration) {
+  // Sauvegarder l'échelle actuelle de la sphère comme échelle de départ
+  const startScale = sphere.scale.clone();
 
-  //   const modification = new THREE.SphereGeometry(2, 32, 32);
-  //   sphere.geometry = modification;
-});
+  // Variable pour la gestion du temps
+  let startTime = null;
+
+  // Fonction de mise à jour de l'échelle de la sphère pour la transition
+  function updateSphereScale(timestamp) {
+    if (startTime === null) {
+      startTime = timestamp;
+    }
+
+    // Calculer le temps écoulé depuis le début de la transition
+    const elapsedTime = timestamp - startTime;
+
+    // Calculer le pourcentage d'avancement de la transition
+    const progress = Math.min(elapsedTime / duration, 1);
+
+    // Calculer l'échelle actuelle en fonction du pourcentage d'avancement
+    const currentScale = startScale.clone().lerp(targetScale, progress);
+
+    // Appliquer l'échelle à la sphère
+    sphere.scale.copy(currentScale);
+
+    // Continuer la transition jusqu'à ce qu'elle soit terminée
+    if (progress < 1) {
+      requestAnimationFrame(updateSphereScale);
+    }
+  }
+
+  // Démarrer la transition
+  requestAnimationFrame(updateSphereScale);
+}
+  
+  // La sphere suit la souris
+  window.addEventListener("mousemove", (event) => {
+    const scale = 2; // L'échelle cible
+    runSphereScaleTransition(new THREE.Vector3(scale, scale, scale), 800);
+    sphere.rotation.x = (event.clientY / window.innerHeight) * 0.5;
+    sphere.rotation.y = (event.clientX / window.innerWidth) * -2;
+  });
+  
 
 // Créer une boucle de rendu
 const animate = function () {
