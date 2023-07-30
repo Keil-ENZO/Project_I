@@ -47,9 +47,9 @@ light.position.set(1, 1, 1);
 scene.add(light);
 
 // Fonction pour exécuter la transition de l'échelle de la sphère
-function runSphereScaleTransition(targetScale, duration) {
+function runSphereScaleTransition(targetPosition, duration) {
   // Sauvegarder l'échelle actuelle de la sphère comme échelle de départ
-  const startScale = sphere.scale.clone();
+  const startPositionX = sphere.position.clone();
 
   // Variable pour la gestion du temps
   let startTime = null;
@@ -67,10 +67,10 @@ function runSphereScaleTransition(targetScale, duration) {
     const progress = Math.min(elapsedTime / duration, 1);
 
     // Calculer l'échelle actuelle en fonction du pourcentage d'avancement
-    const currentScale = startScale.clone().lerp(targetScale, progress);
+    const currentScale = startPositionX.clone().lerp(targetPosition, progress);
 
     // Appliquer l'échelle à la sphère
-    sphere.scale.copy(currentScale);
+    sphere.position.copy(currentScale);
 
     // Continuer la transition jusqu'à ce qu'elle soit terminée
     if (progress < 1) {
@@ -82,8 +82,8 @@ function runSphereScaleTransition(targetScale, duration) {
   requestAnimationFrame(updateSphereScale);
 }
 
-// La fonction pour étirer la sphère en fonction de la position de la souris
-function stretchSphere(event) {
+// La fonction pour déformer la sphère en fonction de la position de la souris
+function deformSphere(event) {
   // Rotation de la sphère en fonction de la position de la souris
   sphere.rotation.x = (event.clientY / window.innerHeight) * 0.5;
   sphere.rotation.y = (event.clientX / window.innerWidth) * -2;
@@ -103,21 +103,16 @@ let play = false;
 
 // La sphere suit la souris
 window.addEventListener("mousemove", (event) => {
-  const scale = 2; // L'échelle cible pour la transition
   const duration = 800; // Durée de la transition en millisecondes
-
-  sphere.position.set(0, 0, 0);
-
-  console.log(sphere.position);
 
   // Si la transition n'est pas déjà en cours, la démarrer
   if (!play) {
     play = true;
-    runSphereScaleTransition(new THREE.Vector3(scale, scale, scale), duration);
+    runSphereScaleTransition(new THREE.Vector3(0, 0, 2), duration);
   }
 
   if (play) {
-    stretchSphere(event);
+    deformSphere(event);
   }
 });
   
