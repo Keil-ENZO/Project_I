@@ -4,6 +4,7 @@ import texture from "../style/img/texture.jpeg";
 // Récupérer le conteneur du canvas
 const canvasContainer = document.getElementById("canvas-container");
 
+
 // Créer la scène
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x000000);
@@ -35,6 +36,8 @@ const material = new THREE.MeshStandardMaterial({
   metalness: 0.9, // Réglez la metalness pour un effet métallisé
   roughness: 0.1, // Réglez la roughness pour ajuster l'apparence du matériau
 });
+
+
 const sphere = new THREE.Mesh(sphereGeometry, material);
 scene.add(sphere);
 
@@ -42,7 +45,6 @@ scene.add(sphere);
 const light = new THREE.DirectionalLight(0xffffff, 1);
 light.position.set(1, 1, 1);
 scene.add(light);
-
 
 // Fonction pour exécuter la transition de l'échelle de la sphère
 function runSphereScaleTransition(targetScale, duration) {
@@ -79,14 +81,45 @@ function runSphereScaleTransition(targetScale, duration) {
   // Démarrer la transition
   requestAnimationFrame(updateSphereScale);
 }
-  
-  // La sphere suit la souris
-  window.addEventListener("mousemove", (event) => {
-    const scale = 2; // L'échelle cible
-    runSphereScaleTransition(new THREE.Vector3(scale, scale, scale), 800);
-    sphere.rotation.x = (event.clientY / window.innerHeight) * 0.5;
-    sphere.rotation.y = (event.clientX / window.innerWidth) * -2;
-  });
+
+// La fonction pour étirer la sphère en fonction de la position de la souris
+function stretchSphere(event) {
+  // Rotation de la sphère en fonction de la position de la souris
+  sphere.rotation.x = (event.clientY / window.innerHeight) * 0.5;
+  sphere.rotation.y = (event.clientX / window.innerWidth) * -2;
+
+  // Étirer la sphère en fonction de la position de la souris
+  const maxStretch = 0.3; // Amplitude maximale de l'étirement
+  const centerX = window.innerWidth / 2;
+  const centerY = window.innerHeight / 2;
+  const deltaX = event.clientX - centerX;
+  const deltaY = event.clientY - centerY;
+  const stretchX = 1 + (deltaX / centerX) * maxStretch;
+  const stretchY = 1 + (deltaY / centerY) * maxStretch;
+  sphere.scale.set(stretchX, stretchY, 1);
+}
+
+let play = false;
+
+// La sphere suit la souris
+window.addEventListener("mousemove", (event) => {
+  const scale = 2; // L'échelle cible pour la transition
+  const duration = 800; // Durée de la transition en millisecondes
+
+  sphere.position.set(0, 0, 0);
+
+  console.log(sphere.position);
+
+  // Si la transition n'est pas déjà en cours, la démarrer
+  if (!play) {
+    play = true;
+    runSphereScaleTransition(new THREE.Vector3(scale, scale, scale), duration);
+  }
+
+  if (play) {
+    stretchSphere(event);
+  }
+});
   
 
 // Créer une boucle de rendu
