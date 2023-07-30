@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PorteFolio - KEIL ENzo</title>
 
     <link rel="stylesheet" href="../dist/style/style.css">
 
 </head>
-<body class="m-0 p-0 overflow-y-hidden">
+<body class="m-0 p-0 overflow-y-hidden bg-black cursor-none">
+
     
     <div  id="canvas-container">
-        <div class="flex justify-between"><h1 class="text-9xl">Keil</h1>
-            <h1 class="text-9xl">Enzo</h1></div>
+
+        <div id="mouse" class="h-6 w-6 bg-white rounded-full mix-blend-difference absolute pointer-events-none"></div>
+
+        <div class="flex justify-between"><h1 class="text-9xl text-white">Keil</h1>
+            <h1 class="text-9xl text-white  ">Enzo</h1></div>
+
+            <hr>
         
     </div>
 
 
-
     <script src="./js/app.js" type="module"></script>
+    <script src="./js/script.js"></script>
 </body>
 </html>
