@@ -2,3 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
+.msgDefilant {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 150px;
+}
+
+.msgDefilant div {
+  position: absolute;
+  min-width: 100%;
+}
+
+.msgDefilant div span,
+.msgDefilant div:after {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  top: 0;
+}
+
+.msgDefilant div span {
+  animation: defilement 10s infinite linear;
+  font-size: 8rem;
+}
+
+.msgDefilant div:after {
+  position: absolute;
+  top: -32px;
+  left: 0;
+  content: attr(data-text);
+  animation: defilement2 10s infinite linear;
+  color: white;
+  font-size: 8rem;
+}
+
+@keyframes defilement {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -100%;
+  }
+}
+
+@keyframes defilement2 {
+  0% {
+    margin-left: 100%;
+  }
+  100% {
+    margin-left: 0%;
+  }
+}

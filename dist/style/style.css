@@ -538,80 +538,24 @@ video {
   pointer-events: none;
 }
 
-.fixed {
-  position: fixed;
-}
-
 .absolute {
   position: absolute;
-}
-
-.left-0 {
-  left: 0px;
-}
-
-.top-0 {
-  top: 0px;
-}
-
-.left-2 {
-  left: 0.5rem;
-}
-
-.top-2 {
-  top: 0.5rem;
-}
-
-.top-4 {
-  top: 1rem;
-}
-
-.top-8 {
-  top: 2rem;
 }
 
 .m-0 {
   margin: 0px;
 }
 
-.flex {
-  display: flex;
-}
-
-.h-1 {
-  height: 0.25rem;
-}
-
-.h-4 {
-  height: 1rem;
-}
-
 .h-6 {
   height: 1.5rem;
-}
-
-.w-1 {
-  width: 0.25rem;
-}
-
-.w-4 {
-  width: 1rem;
 }
 
 .w-6 {
   width: 1.5rem;
 }
 
-.cursor-pointer {
-  cursor: pointer;
-}
-
 .cursor-none {
   cursor: none;
-}
-
-.justify-between {
-  justify-content: space-between;
 }
 
 .overflow-y-hidden {
@@ -620,11 +564,6 @@ video {
 
 .rounded-full {
   border-radius: 9999px;
-}
-
-.rounded-e-full {
-  border-start-end-radius: 9999px;
-  border-end-end-radius: 9999px;
 }
 
 .bg-black {
@@ -639,10 +578,6 @@ video {
 
 .p-0 {
   padding: 0px;
-}
-
-.p-2 {
-  padding: 0.5rem;
 }
 
 .text-9xl {
@@ -667,8 +602,60 @@ video {
   transition-duration: 150ms;
 }
 
-.hover\:translate-x-1:hover {
-  --tw-translate-x: 0.25rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+.msgDefilant {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 150px;
 }
 
+.msgDefilant div {
+  position: absolute;
+  min-width: 100%;
+}
+
+.msgDefilant div span,
+.msgDefilant div:after {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  top: 0;
+}
+
+.msgDefilant div span {
+  animation: defilement 10s infinite linear;
+  font-size: 8rem;
+}
+
+.msgDefilant div:after {
+  position: absolute;
+  top: -32px;
+  left: 0;
+  content: attr(data-text);
+  animation: defilement2 10s infinite linear;
+  color: white;
+  font-size: 8rem;
+}
+
+@keyframes defilement {
+  0% {
+    margin-left: 0;
+  }
+
+  100% {
+    margin-left: -100%;
+  }
+}
+
+@keyframes defilement2 {
+  0% {
+    margin-left: 100%;
+  }
+
+  100% {
+    margin-left: 0%;
+  }
+}
