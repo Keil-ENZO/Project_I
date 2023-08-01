@@ -1,13 +1,16 @@
 import * as THREE from "three";
 
 import texture from "../style/img/texture.jpeg";
+import svg from "../style/img/background.svg";
+
 // Récupérer le conteneur du canvas
 const canvasContainer = document.getElementById("canvas-container");
-
+const textureLoader = new THREE.TextureLoader();
 
 // Créer la scène
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x000000);
+const bgScene = textureLoader.load(svg);
+scene.background = bgScene;
 
 // Créer la caméra
 const camera = new THREE.PerspectiveCamera(
@@ -23,8 +26,6 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 canvasContainer.appendChild(renderer.domElement);
 
-const textureLoader = new THREE.TextureLoader();
-
 // Créer un sphere
 const radius = 0.9;
 const segments = 32;
@@ -36,7 +37,6 @@ const material = new THREE.MeshStandardMaterial({
   metalness: 0.9, // Réglez la metalness pour un effet métallisé
   roughness: 0.1, // Réglez la roughness pour ajuster l'apparence du matériau
 });
-
 
 const sphere = new THREE.Mesh(sphereGeometry, material);
 scene.add(sphere);
@@ -115,7 +115,6 @@ window.addEventListener("mousemove", (event) => {
     deformSphere(event);
   }
 });
-  
 
 // Créer une boucle de rendu
 const animate = function () {
