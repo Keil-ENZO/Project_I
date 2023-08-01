@@ -578,22 +578,14 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _three = require("three");
 var _textureJpeg = require("../style/img/texture.jpeg");
 var _textureJpegDefault = parcelHelpers.interopDefault(_textureJpeg);
-var _backgroundSvg = require("../style/img/background.svg");
-var _backgroundSvgDefault = parcelHelpers.interopDefault(_backgroundSvg);
+// import svg from "../style/img/background.svg";
 // Récupérer le conteneur du canvas
 const canvasContainer = document.getElementById("canvas-container");
 const textureLoader = new _three.TextureLoader();
 // Créer la scène
 const scene = new _three.Scene();
-const bgScene = textureLoader.load([
-    (0, _backgroundSvgDefault.default),
-    (0, _backgroundSvgDefault.default),
-    (0, _backgroundSvgDefault.default),
-    (0, _backgroundSvgDefault.default),
-    (0, _backgroundSvgDefault.default),
-    (0, _backgroundSvgDefault.default)
-]);
-scene.background = bgScene;
+// const bgScene = textureLoader.load(svg);
+// scene.background = bgScene;
 // Créer la caméra
 const camera = new _three.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.position.set(0, 0, 5);
@@ -673,7 +665,7 @@ const animate = function() {
 };
 animate();
 
-},{"three":"ktPTu","@parcel/transformer-js/src/esmodule-helpers.js":"aRELh","../style/img/texture.jpeg":"hHWe2","../style/img/background.svg":"5nrrk"}],"ktPTu":[function(require,module,exports) {
+},{"three":"ktPTu","@parcel/transformer-js/src/esmodule-helpers.js":"aRELh","../style/img/texture.jpeg":"hHWe2"}],"ktPTu":[function(require,module,exports) {
 /**
  * @license
  * Copyright 2010-2023 Three.js Authors
@@ -30664,9 +30656,6 @@ exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 exports.getOrigin = getOrigin;
 
-},{}],"5nrrk":[function(require,module,exports) {
-module.exports = require("e9da438d4b7908de").getBundleURL("ixJtV") + "background.bc181914.svg" + "?" + Date.now();
-
-},{"e9da438d4b7908de":"95GEp"}]},["6tjev","8lRBv"], "8lRBv", "parcelRequirea816")
+},{}]},["6tjev","8lRBv"], "8lRBv", "parcelRequirea816")
 
 //# sourceMappingURL=index.59a40e7a.js.map

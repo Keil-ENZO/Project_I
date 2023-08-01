@@ -1,16 +1,17 @@
 import * as THREE from "three";
 
 import texture from "../style/img/texture.jpeg";
-import svg from "../style/img/background.svg";
+// import svg from "../style/img/background.svg";
 
 // Récupérer le conteneur du canvas
 const canvasContainer = document.getElementById("canvas-container");
 const textureLoader = new THREE.TextureLoader();
 
+
 // Créer la scène
 const scene = new THREE.Scene();
-const bgScene = textureLoader.load([svg, svg, svg, svg, svg, svg]);
-scene.background = bgScene;
+// const bgScene = textureLoader.load(svg);
+// scene.background = bgScene;
 
 
 
