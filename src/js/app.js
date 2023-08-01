@@ -9,8 +9,11 @@ const textureLoader = new THREE.TextureLoader();
 
 // Créer la scène
 const scene = new THREE.Scene();
-const bgScene = textureLoader.load(svg);
+const bgScene = textureLoader.load([svg, svg, svg, svg, svg, svg]);
 scene.background = bgScene;
+
+
+
 
 // Créer la caméra
 const camera = new THREE.PerspectiveCamera(

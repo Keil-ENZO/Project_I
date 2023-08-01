@@ -585,7 +585,14 @@ const canvasContainer = document.getElementById("canvas-container");
 const textureLoader = new _three.TextureLoader();
 // Créer la scène
 const scene = new _three.Scene();
-const bgScene = textureLoader.load((0, _backgroundSvgDefault.default));
+const bgScene = textureLoader.load([
+    (0, _backgroundSvgDefault.default),
+    (0, _backgroundSvgDefault.default),
+    (0, _backgroundSvgDefault.default),
+    (0, _backgroundSvgDefault.default),
+    (0, _backgroundSvgDefault.default),
+    (0, _backgroundSvgDefault.default)
+]);
 scene.background = bgScene;
 // Créer la caméra
 const camera = new _three.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
