@@ -15,7 +15,6 @@ const scene = new THREE.Scene();
 
 
 
-
 // Créer la caméra
 const camera = new THREE.PerspectiveCamera(
   75,
