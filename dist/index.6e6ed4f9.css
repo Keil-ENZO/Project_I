@@ -255,6 +255,10 @@ img, video {
   position: absolute;
 }
 
+.z-50 {
+  z-index: 50;
+}
+
 .m-0 {
   margin: 0;
 }
@@ -280,12 +284,28 @@ img, video {
   width: 100%;
 }
 
+.w-\[100vw\] {
+  width: 100vw;
+}
+
+.w-\[80vw\] {
+  width: 80vw;
+}
+
 .cursor-none {
   cursor: none;
 }
 
+.flex-col {
+  flex-direction: column;
+}
+
 .items-center {
   align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .justify-between {
@@ -323,9 +343,49 @@ img, video {
   font-size: 10vw;
 }
 
+.text-\[13rem\] {
+  font-size: 13rem;
+}
+
+.text-\[13vw\] {
+  font-size: 13vw;
+}
+
+.text-\[12rem\] {
+  font-size: 12rem;
+}
+
+.text-\[10rem\] {
+  font-size: 10rem;
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.opacity-50 {
+  opacity: .5;
+}
+
+.opacity-10 {
+  opacity: .1;
+}
+
+.opacity-70 {
+  opacity: .7;
+}
+
+.opacity-60 {
+  opacity: .6;
+}
+
+.opacity-5 {
+  opacity: .05;
+}
+
+.opacity-40 {
+  opacity: .4;
 }
 
 .mix-blend-difference {
