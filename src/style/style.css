@@ -33,6 +33,7 @@ a:before, a:after, a > span:before, a > span:after {
 .hoverEffect {
   display: inline-block;
   overflow: hidden;
+  opacity: 0.6;
 }
 .hoverEffect:before {
   left: 0;
@@ -40,8 +41,7 @@ a:before, a:after, a > span:before, a > span:after {
   width: 100%;
   height: 100%;
   background: white;
-  opacity: 1;
-  transform: translateX(-100%);
+  transform: translateX(-110%);
 }
 .hoverEffect:after {
   content: attr(data-content);
@@ -50,7 +50,6 @@ a:before, a:after, a > span:before, a > span:after {
   width: 0;
   margin: 12px;
   color: white;
-  opacity: 1;
   white-space: nowrap;
   overflow: hidden;
   transition: width .5s ease;
@@ -66,6 +65,10 @@ a:before, a:after, a > span:before, a > span:after {
 }
 .hoverEffect:hover:after {
   width: calc(100% - 24px);
+}
+
+.hoverEffect:hover  {
+  opacity: 1;
 }
 
 #container .box > div {
