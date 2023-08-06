@@ -7,13 +7,26 @@
 
     <link rel="stylesheet" href="../dist/style/style.css" />
   </head>
-  <body class="m-0 p-0 bg-black cursor-none overflow-hidden">
+  <body class="m-0 p-0 bg-black cursor-none overflow-hidden ">
     <div
       id="mouse"
       class="h-6 w-6 bg-white rounded-full mix-blend-difference absolute pointer-events-none z-50"
     ></div>
 
-    <div id="container">
+    <header>
+      <nav class="flex justify-between items-center w-full h-[100px] border-b border-white">
+        <ul>
+          <h2 class="text-white text-4xl px-4">KeilEnzo</h2>
+        </ul>
+        <ul class="flex justify-between">
+          <li class="text-white text-xl px-4">About me</li>
+          <li class="text-white text-xl px-4">Project</li>
+          <li class="text-white text-xl px-4">Contact</li>
+        </ul>
+      </nav>
+    </header>
+
+    <div id="container" class="no-scrollbar">
       <div id="container2">
         <div class="box one">
           <div class="flex items-center justify-center">
