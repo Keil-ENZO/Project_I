@@ -104,20 +104,25 @@ function deformSphere(event) {
 
 let play = false;
 
-// La sphere suit la souris
-window.addEventListener("mousemove", (event) => {
-  const duration = 800; // Durée de la transition en millisecondes
 
-  // Si la transition n'est pas déjà en cours, la démarrer
-  if (!play) {
-    play = true;
-    runSphereScaleTransition(new THREE.Vector3(0, 0, 2), duration);
-  }
 
-  if (play) {
-    deformSphere(event);
-  }
-});
+if (window.innerWidth > 1000) {
+  window.addEventListener("mousemove", (event) => {
+    const duration = 800; // Durée de la transition en millisecondes
+
+    // Si la transition n'est pas déjà en cours, la démarrer
+    if (!play) {
+      play = true;
+      runSphereScaleTransition(new THREE.Vector3(0, 0, 2), duration);
+    }
+
+    if (play) {
+      deformSphere(event);
+    }
+  });
+} else {
+  runSphereScaleTransition(new THREE.Vector3(0, 0, 2), 800);
+}
 
 // Créer une boucle de rendu
 const animate = function () {
