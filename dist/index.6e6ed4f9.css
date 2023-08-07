@@ -397,6 +397,14 @@ img, video {
   padding-right: 1.25rem;
 }
 
+.font-font-text {
+  font-family: Quicksand, sans-serif;
+}
+
+.font-font-title {
+  font-family: Raleway, sans-serif;
+}
+
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -536,5 +544,6 @@ a:before, a:after, a > span:before, a > span:after {
   font-size: 0;
   transform: rotate(90deg)translateY(-100vh);
 }
+
 
 /*# sourceMappingURL=index.6e6ed4f9.css.map */
