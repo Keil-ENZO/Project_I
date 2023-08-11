@@ -675,15 +675,6 @@ video {
   border-bottom-left-radius: 9999px;
 }
 
-.rounded-b-3xl {
-  border-bottom-right-radius: 1.5rem;
-  border-bottom-left-radius: 1.5rem;
-}
-
-.border {
-  border-width: 1px;
-}
-
 .border-b {
   border-bottom-width: 1px;
 }
@@ -716,11 +707,6 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-red-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
 
 .p-0 {
@@ -825,24 +811,8 @@ video {
   transition-duration: 150ms;
 }
 
-.duration-700 {
-  transition-duration: 700ms;
-}
-
-.duration-300 {
-  transition-duration: 300ms;
-}
-
 .duration-500 {
   transition-duration: 500ms;
-}
-
-.ease-linear {
-  transition-timing-function: linear;
-}
-
-.ease-in-out {
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ease-in {
@@ -864,102 +834,104 @@ video {
   /* Firefox */
 }
 
-a, a > span {
-  position: relative;
-  color: inherit;
-  text-decoration: none;
-  line-height: 24px;
-  cursor: none;
-}
+@media screen and (min-width:720px) {
+  a, a > span {
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+    line-height: 24px;
+    cursor: none;
+  }
 
-a:before, a:after, a > span:before, a > span:after {
-  content: '';
-  position: absolute;
-  transition: transform .5s ease;
-}
+  a:before, a:after, a > span:before, a > span:after {
+    content: '';
+    position: absolute;
+    transition: transform .5s ease;
+  }
 
-.hoverEffect {
-  display: inline-block;
-  overflow: hidden;
-  opacity: 0.6;
-}
+  .hoverEffect {
+    display: inline-block;
+    overflow: hidden;
+    opacity: 0.6;
+  }
 
-.hoverEffect:before {
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: white;
-  transform: translateX(-110%);
-}
+  .hoverEffect:before {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    transform: translateX(-110%);
+  }
 
-.hoverEffect:after {
-  content: attr(data-content);
-  left: 0;
-  top: 0;
-  width: 0;
-  margin: 12px;
-  color: white;
-  white-space: nowrap;
-  overflow: hidden;
-  transition: width .5s ease;
-}
+  .hoverEffect:after {
+    content: attr(data-content);
+    left: 0;
+    top: 0;
+    width: 0;
+    margin: 12px;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: width .5s ease;
+  }
 
-.hoverEffect > span {
-  display: block;
-  margin: 2px;
-  padding: 10px;
-  background: black;
-}
+  .hoverEffect > span {
+    display: block;
+    margin: 2px;
+    padding: 10px;
+    background: black;
+  }
 
-.hoverEffect:hover:before {
-  transform: translateX(0);
-}
+  .hoverEffect:hover:before {
+    transform: translateX(0);
+  }
 
-.hoverEffect:hover:after {
-  width: calc(100% - 24px);
-}
+  .hoverEffect:hover:after {
+    width: calc(100% - 24px);
+  }
 
-.hoverEffect:hover  {
-  opacity: 1;
-}
+  .hoverEffect:hover  {
+    opacity: 1;
+  }
 
-#container .box > div {
-  width: 100px;
-  height: 100px;
-  font-size: 96px;
-  color: #fff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -50px 0 0 -50px;
-  line-height: 0.9;
-  font-weight: bold;
-}
+  #container .box > div {
+    width: 100px;
+    height: 100px;
+    font-size: 96px;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -50px 0 0 -50px;
+    line-height: 0.9;
+    font-weight: bold;
+  }
 
-#container {
-  overflow-y: scroll;
-  overflow-x: hidden;
-  transform: rotate(270deg) translateX(-100%);
-  transform-origin: top left;
-  background-color: #999;
-  position: absolute;
-  width: 100vh;
-  height: 100vw;
-}
+  #container {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    transform: rotate(270deg) translateX(-100%);
+    transform-origin: top left;
+    background-color: #999;
+    position: absolute;
+    width: 100vh;
+    height: 100vw;
+  }
 
-#container .box {
-  width: 100vw;
-  height: 100vh;
-  display: inline-block;
-  position: relative;
-}
+  #container .box {
+    width: 100vw;
+    height: 100vh;
+    display: inline-block;
+    position: relative;
+  }
 
-#container2 {
-  transform: rotate(90deg) translateY(-100vh);
-  transform-origin: top left;
-  white-space: nowrap;
-  font-size: 0;
+  #container2 {
+    transform: rotate(90deg) translateY(-100vh);
+    transform-origin: top left;
+    white-space: nowrap;
+    font-size: 0;
+  }
 }
 
 /* 
@@ -970,8 +942,6 @@ a:before, a:after, a > span:before, a > span:after {
   width: 100%;
   height: 120px;
 }
-
-
 
 .msgDefilant div span,
 .msgDefilant div:after {
@@ -1054,6 +1024,10 @@ a:before, a:after, a > span:before, a > span:after {
     --tw-space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--tw-space-y-reverse)));
     margin-bottom: calc(0px * var(--tw-space-y-reverse));
+  }
+
+  .md\:overflow-hidden {
+    overflow: hidden;
   }
 
   .md\:py-0 {
