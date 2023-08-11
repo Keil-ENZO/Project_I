@@ -564,16 +564,19 @@ img, video {
 
 @media screen and (width >= 769px) {
   a, a > span {
-    color: inherit;
     cursor: none;
+    color: inherit;
     line-height: 24px;
-    text-decoration: none;
+    text-decoration-line: none;
     position: relative;
   }
 
   a:before, a:after, a > span:before, a > span:after {
-    content: "";
-    transition: transform .5s;
+    --tw-content: "";
+    content: var(--tw-content);
+    transition-property: transform;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
     position: absolute;
   }
 
@@ -584,35 +587,44 @@ img, video {
   }
 
   .hoverEffect:before {
-    background: #fff;
+    --tw-translate-x: -110%;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    transform: translateX(-110%);
   }
 
   .hoverEffect:after {
-    content: attr(data-content);
-    color: #fff;
     white-space: nowrap;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+    --tw-content: attr(data-content);
+    content: var(--tw-content);
     width: 0;
-    margin: 12px;
-    transition: width .5s;
+    margin: 3rem;
+    transition-property: all;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    position: absolute;
     top: 0;
     left: 0;
     overflow: hidden;
   }
 
   .hoverEffect > span {
-    background: #000;
+    --tw-bg-opacity: 1;
+    background-color: rgb(0 0 0 / var(--tw-bg-opacity));
     margin: 2px;
     padding: 10px;
     display: block;
   }
 
   .hoverEffect:hover:before {
-    transform: translateX(0);
+    --tw-translate-x: 0px;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
   .hoverEffect:hover:after {
@@ -624,12 +636,13 @@ img, video {
   }
 
   #container .box > div {
-    color: #fff;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
     width: 100px;
     height: 100px;
     margin: -50px 0 0 -50px;
     font-size: 96px;
-    font-weight: bold;
+    font-weight: 700;
     line-height: .9;
     position: absolute;
     top: 50%;
@@ -638,7 +651,8 @@ img, video {
 
   #container {
     transform-origin: 0 0;
-    background-color: #999;
+    --tw-bg-opacity: 1;
+    background-color: rgb(153 153 153 / var(--tw-bg-opacity));
     width: 100vh;
     height: 100vw;
     position: absolute;
@@ -667,60 +681,8 @@ img, video {
     position: static;
   }
 
-  .md\:left-0 {
-    left: 0;
-  }
-
-  .md\:top-0 {
-    top: 0;
-  }
-
-  .md\:left-\[90\%\] {
-    left: 90%;
-  }
-
-  .md\:top-\[50\%\] {
-    top: 50%;
-  }
-
-  .md\:left-\[10\%\] {
-    left: 10%;
-  }
-
-  .md\:left-\[100\%\] {
-    left: 100%;
-  }
-
-  .md\:left-\[150\%\] {
-    left: 150%;
-  }
-
-  .md\:left-\[200\%\] {
-    left: 200%;
-  }
-
-  .md\:top-\[200\%\] {
-    top: 200%;
-  }
-
-  .md\:top-\[250\%\] {
-    top: 250%;
-  }
-
-  .md\:left-\[250\%\] {
-    left: 250%;
-  }
-
-  .md\:left-\[350\%\] {
-    left: 350%;
-  }
-
   .md\:left-\[550\%\] {
     left: 550%;
-  }
-
-  .md\:top-\[350\%\] {
-    top: 350%;
   }
 
   .md\:top-\[300\%\] {
@@ -749,16 +711,6 @@ img, video {
 
   .md\:w-auto {
     width: auto;
-  }
-
-  .md\:-translate-x-\[0\%\] {
-    --tw-translate-x: -0%;
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  }
-
-  .md\:-translate-y-\[0\%\] {
-    --tw-translate-y: -0%;
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
   .md\:rotate-0 {

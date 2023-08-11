@@ -857,19 +857,26 @@ video {
   /* Firefox */
 }
 
-@media screen and (min-width:769px) {
-  a, a > span {
+@media screen and (min-width: 769px) {
+  a,
+  a > span {
     position: relative;
-    color: inherit;
-    text-decoration: none;
-    line-height: 24px;
     cursor: none;
+    line-height: 24px;
+    color: inherit;
+    text-decoration-line: none;
   }
 
-  a:before, a:after, a > span:before, a > span:after {
-    content: '';
+  a:before,
+  a:after,
+  a > span:before,
+  a > span:after {
     position: absolute;
-    transition: transform .5s ease;
+    transition-property: transform;
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    --tw-content: '';
+    content: var(--tw-content);
   }
 
   .hoverEffect {
@@ -879,81 +886,97 @@ video {
   }
 
   .hoverEffect:before {
-    left: 0;
-    top: 0;
-    width: 100%;
+    left: 0px;
+    top: 0px;
     height: 100%;
-    background: white;
-    transform: translateX(-110%);
+    width: 100%;
+    --tw-translate-x: -110%;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   }
 
   .hoverEffect:after {
-    content: attr(data-content);
-    left: 0;
-    top: 0;
-    width: 0;
-    margin: 12px;
-    color: white;
-    white-space: nowrap;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    margin: 3rem;
+    width: 0px;
     overflow: hidden;
-    transition: width .5s ease;
+    white-space: nowrap;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+    transition-property: all;
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    --tw-content: attr(data-content);
+    content: var(--tw-content);
   }
 
   .hoverEffect > span {
-    display: block;
     margin: 2px;
+    display: block;
+    --tw-bg-opacity: 1;
+    background-color: rgb(0 0 0 / var(--tw-bg-opacity));
     padding: 10px;
-    background: black;
   }
 
   .hoverEffect:hover:before {
-    transform: translateX(0);
+    --tw-translate-x: 0px;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
   .hoverEffect:hover:after {
     width: calc(100% - 24px);
   }
 
-  .hoverEffect:hover  {
+  .hoverEffect:hover {
     opacity: 1;
   }
 
+  /* Effet scroll horizontal */
+
   #container .box > div {
-    width: 100px;
-    height: 100px;
-    font-size: 96px;
-    color: #fff;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin: -50px 0 0 -50px;
+    margin-left: -50px;
+    margin-top: -50px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    height: 100px;
+    width: 100px;
+    font-size: 96px;
+    font-weight: 700;
     line-height: 0.9;
-    font-weight: bold;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
   }
 
   #container {
-    overflow-y: scroll;
-    overflow-x: hidden;
     transform: rotate(270deg) translateX(-100%);
-    transform-origin: top left;
-    background-color: #999;
     position: absolute;
-    width: 100vh;
     height: 100vw;
+    width: 100vh;
+    transform-origin: top left;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    --tw-bg-opacity: 1;
+    background-color: rgb(153 153 153 / var(--tw-bg-opacity));
   }
 
   #container .box {
-    width: 100vw;
-    height: 100vh;
-    display: inline-block;
     position: relative;
+    display: inline-block;
+    height: 100vh;
+    width: 100vw;
   }
 
   #container2 {
     transform: rotate(90deg) translateY(-100vh);
     transform-origin: top left;
     white-space: nowrap;
-    font-size: 0;
+    font-size: 0px;
   }
 }
 
@@ -1013,60 +1036,8 @@ video {
     position: static;
   }
 
-  .md\:left-0 {
-    left: 0px;
-  }
-
-  .md\:top-0 {
-    top: 0px;
-  }
-
-  .md\:left-\[90\%\] {
-    left: 90%;
-  }
-
-  .md\:top-\[50\%\] {
-    top: 50%;
-  }
-
-  .md\:left-\[10\%\] {
-    left: 10%;
-  }
-
-  .md\:left-\[100\%\] {
-    left: 100%;
-  }
-
-  .md\:left-\[150\%\] {
-    left: 150%;
-  }
-
-  .md\:left-\[200\%\] {
-    left: 200%;
-  }
-
-  .md\:top-\[200\%\] {
-    top: 200%;
-  }
-
-  .md\:top-\[250\%\] {
-    top: 250%;
-  }
-
-  .md\:left-\[250\%\] {
-    left: 250%;
-  }
-
-  .md\:left-\[350\%\] {
-    left: 350%;
-  }
-
   .md\:left-\[550\%\] {
     left: 550%;
-  }
-
-  .md\:top-\[350\%\] {
-    top: 350%;
   }
 
   .md\:top-\[300\%\] {
@@ -1095,16 +1066,6 @@ video {
 
   .md\:w-auto {
     width: auto;
-  }
-
-  .md\:-translate-x-\[0\%\] {
-    --tw-translate-x: -0%;
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  }
-
-  .md\:-translate-y-\[0\%\] {
-    --tw-translate-y: -0%;
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
   .md\:rotate-0 {
