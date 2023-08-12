@@ -587,7 +587,7 @@ const scene = new _three.Scene();
 // const bgScene = textureLoader.load(svg);
 // scene.background = bgScene;
 // Créer la caméra
-const camera = new _three.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new _three.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.position.set(0, 0, 5);
 // Créer le rendu
 const renderer = new _three.WebGLRenderer();
@@ -665,7 +665,7 @@ const animate = function() {
 };
 animate();
 
-},{"three":"ktPTu","@parcel/transformer-js/src/esmodule-helpers.js":"aRELh","../style/img/texture.jpeg":"hHWe2"}],"ktPTu":[function(require,module,exports) {
+},{"three":"ktPTu","../style/img/texture.jpeg":"hHWe2","@parcel/transformer-js/src/esmodule-helpers.js":"aRELh"}],"ktPTu":[function(require,module,exports) {
 /**
  * @license
  * Copyright 2010-2023 Three.js Authors

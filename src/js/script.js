@@ -1,8 +1,23 @@
 const mouse = document.getElementById("mouse");
+const navBar = document.getElementById("navBar");
 
+let lastScroll = 0;
+
+// Event pour faire bouger le curseur
 window.addEventListener("mousemove", (e) => {
   mouse.style.top = e.y + "px";
   mouse.style.left = e.x + "px";
+});
+
+// Event pour faire bouger la navBar
+window.addEventListener("scroll", () => {
+  if (window.scrollY < lastScroll) {
+    navBar.style.top = 0;
+  } else {
+    navBar.style.top = "-80px";
+  }
+
+  lastScroll = window.scrollY;
 });
 
 
