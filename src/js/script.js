@@ -12,7 +12,7 @@ window.addEventListener("mousemove", (e) => {
 // Event pour faire bouger la navBar
 window.addEventListener("scroll", () => {
   if (window.scrollY < lastScroll) {
-    navBar.style.top = 0;
+    navBar.style.top = "0";
   } else {
     navBar.style.top = "-80px";
   }

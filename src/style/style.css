@@ -55,7 +55,7 @@
   /* Effet scroll horizontal */
 
   #container .box > div {
-    @apply w-[100px] h-[100px] text-[96px] text-white absolute top-[50%] left-[50%] ml-[-50px] mt-[-50px] mb-0 mr-0 leading-[0.9] font-bold;
+    @apply w-[100px] h-[100px] text-2xl text-white absolute top-[50%] left-[50%] ml-[-50px] mt-[-50px] mb-0 mr-0 leading-[0.9] font-bold;
   }
   #container {
     transform: rotate(270deg) translateX(-100%);
